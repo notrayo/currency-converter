@@ -14,9 +14,15 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Currency Converter App'),
       ),
-      body: const Center(
-        child: Text('widgets will display here ...'),
-      ),
+      body: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              // Image.asset('assets/images/logo 3.jpeg'),
+              const Text('Text Boxes will display here ...')
+            ],
+          )),
     );
   }
 }
