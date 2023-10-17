@@ -16,12 +16,26 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              // Image.asset('assets/images/logo 3.jpeg'),
-              const Text('Text Boxes will display here ...')
-            ],
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: const <Widget>[
+                SizedBox(
+                  height: 10,
+                ),
+                CircleAvatar(
+                  backgroundImage: AssetImage('assets/images/logo 4.jpg'),
+                  radius: 60,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  'Enter Amount you want Converted  ...',
+                  style: TextStyle(fontSize: 17, fontStyle: FontStyle.italic),
+                ),
+              ],
+            ),
           )),
     );
   }
