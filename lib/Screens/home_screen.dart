@@ -19,20 +19,67 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              children: const <Widget>[
-                SizedBox(
+              children: <Widget>[
+                const SizedBox(
                   height: 10,
                 ),
-                CircleAvatar(
+                const CircleAvatar(
                   backgroundImage: AssetImage('assets/images/logo 4.jpg'),
                   radius: 60,
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 30,
                 ),
-                Text(
-                  'Enter Amount you want Converted  ...',
+                const Text(
+                  'Text Boxes below  ...',
                   style: TextStyle(fontSize: 17, fontStyle: FontStyle.italic),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      const TextField(
+                        decoration: InputDecoration(
+                          labelText:
+                              'Input the amount of money you want converted : ',
+                          labelStyle: TextStyle(
+                              fontStyle: FontStyle.italic,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue),
+                          filled: true,
+                          fillColor: Colors.white,
+                        ),
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      const SizedBox(
+                        height: 50,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Expanded(
+                              child: TextField(
+                            decoration: InputDecoration(
+                                filled: true, fillColor: Colors.white70),
+                          )),
+                          SizedBox(
+                            width: 60,
+                          ),
+                          Expanded(
+                              child: TextField(
+                            decoration: InputDecoration(
+                                filled: true, fillColor: Colors.white70),
+                          ))
+                        ],
+                      )
+
+                      //TextField()
+                    ],
+                  ),
                 ),
               ],
             ),
