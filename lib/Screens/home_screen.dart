@@ -41,41 +41,43 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      const TextField(
+                    children: const <Widget>[
+                      TextField(
                         decoration: InputDecoration(
-                          labelText:
-                              'Input the amount of money you want converted : ',
+                          labelText: 'Input the amount of money : ',
                           labelStyle: TextStyle(
-                              fontStyle: FontStyle.italic,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.blue),
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
                           filled: true,
                           fillColor: Colors.white,
                         ),
                         style: TextStyle(color: Colors.black),
+                        //textAlign: TextAlign.center,
+                        keyboardType: TextInputType.number,
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 50,
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          Expanded(
-                              child: TextField(
-                            decoration: InputDecoration(
-                                filled: true, fillColor: Colors.white70),
-                          )),
-                          SizedBox(
-                            width: 60,
-                          ),
-                          Expanded(
-                              child: TextField(
-                            decoration: InputDecoration(
-                                filled: true, fillColor: Colors.white70),
-                          ))
-                        ],
-                      )
+                      // Row(
+                      //   mainAxisAlignment: MainAxisAlignment.center,
+                      //   children: const [
+                      //     Expanded(
+                      //         child: TextField(
+                      //       decoration: InputDecoration(
+                      //           filled: true, fillColor: Colors.white70),
+                      //     )),
+                      //     SizedBox(
+                      //       width: 60,
+                      //     ),
+                      //     Expanded(
+                      //         child: TextField(
+                      //       decoration: InputDecoration(
+                      //           filled: true, fillColor: Colors.white70),
+                      //     ))
+                      //   ],
+                      // )
 
                       //TextField()
                     ],
