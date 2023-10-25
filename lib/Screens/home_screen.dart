@@ -14,78 +14,225 @@ class _HomeScreenState extends State<HomeScreen> {
       appBar: AppBar(
         title: const Text('Currency Converter App'),
       ),
-      body: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Center(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                const SizedBox(
-                  height: 10,
-                ),
-                const CircleAvatar(
-                  backgroundImage: AssetImage('assets/images/logo 4.jpg'),
-                  radius: 60,
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                const Text(
-                  'Text Boxes below  ...',
-                  style: TextStyle(fontSize: 17, fontStyle: FontStyle.italic),
-                ),
-                const SizedBox(
-                  height: 50,
-                ),
-                Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: const <Widget>[
-                      TextField(
-                        decoration: InputDecoration(
-                          labelText: 'Input the amount of money : ',
-                          labelStyle: TextStyle(
-                            fontStyle: FontStyle.italic,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
+      body: SingleChildScrollView(
+        child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Center(
+              child: Column(
+                children: [
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 160,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 245, 242, 242),
+                        borderRadius: BorderRadius.circular(5),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black38.withGreen(10),
+                              spreadRadius: 2,
+                              blurRadius: 2)
+                        ]),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: Image.asset(
+                                  'assets/images/usa.jpeg',
+                                  height: 30,
+                                  width: 50,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'US DOLLAR',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      'USD',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic,
+                                          color: Colors.grey),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              const Icon(
+                                Icons.chevron_right_outlined,
+                                color: Colors.black,
+                              )
+                            ],
                           ),
-                          filled: true,
-                          fillColor: Colors.white,
-                        ),
-                        style: TextStyle(color: Colors.black),
-                        //textAlign: TextAlign.center,
-                        keyboardType: TextInputType.number,
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const TextField(
+                            style: TextStyle(color: Colors.black, fontSize: 25),
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              hintText: '0.0 ',
+                              hintStyle: TextStyle(color: Colors.black),
+                              suffixIcon: Text(
+                                '\$',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 25),
+                              ),
+                              suffixIconConstraints:
+                                  BoxConstraints(minHeight: 0, minWidth: 0),
+                            ),
+                          )
+                        ],
                       ),
-                      SizedBox(
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Row(
+                    children: [
+                      Container(
                         height: 50,
+                        width: 50,
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 10, 96, 132),
+                          borderRadius: BorderRadius.circular(1),
+                          // boxShadow: [
+                          //   BoxShadow(
+                          //       color: Colors.black38.withGreen(10),
+                          //       spreadRadius: 2,
+                          //       blurRadius: 2)
+                          // ]
+                        ),
+                        child: const Icon(Icons.drag_handle_sharp),
                       ),
-                      // Row(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: const [
-                      //     Expanded(
-                      //         child: TextField(
-                      //       decoration: InputDecoration(
-                      //           filled: true, fillColor: Colors.white70),
-                      //     )),
-                      //     SizedBox(
-                      //       width: 60,
-                      //     ),
-                      //     Expanded(
-                      //         child: TextField(
-                      //       decoration: InputDecoration(
-                      //           filled: true, fillColor: Colors.white70),
-                      //     ))
-                      //   ],
-                      // )
-
-                      //TextField()
+                      const SizedBox(
+                        width: 80,
+                      ),
+                      Expanded(
+                        child: Container(
+                          height: 50,
+                          decoration: BoxDecoration(
+                            color: Colors.indigoAccent,
+                            borderRadius: BorderRadius.circular(1),
+                            border: Border.all(color: Colors.indigo),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Row(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: const [
+                                Icon(Icons.switch_access_shortcut),
+                                SizedBox(
+                                  width: 15,
+                                ),
+                                Text(
+                                  'Switch Currencies',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
-                ),
-              ],
-            ),
-          )),
+                  const SizedBox(
+                    height: 50,
+                  ),
+                  Container(
+                    height: 160,
+                    decoration: BoxDecoration(
+                        color: const Color.fromARGB(255, 245, 242, 242),
+                        borderRadius: BorderRadius.circular(5),
+                        boxShadow: [
+                          BoxShadow(
+                              color: Colors.black38.withGreen(10),
+                              spreadRadius: 2,
+                              blurRadius: 2)
+                        ]),
+                    child: Padding(
+                      padding: const EdgeInsets.all(20.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(5),
+                                child: Image.asset(
+                                  'assets/images/british-flag.png',
+                                  height: 40,
+                                  width: 50,
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: const [
+                                    Text(
+                                      'BRITISH POUND STERLING',
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black),
+                                    ),
+                                    Text(
+                                      'GBP',
+                                      style: TextStyle(
+                                          fontStyle: FontStyle.italic,
+                                          color: Colors.grey),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              const Icon(
+                                Icons.chevron_right_outlined,
+                                color: Colors.black,
+                              )
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          const TextField(
+                            style: TextStyle(color: Colors.black, fontSize: 25),
+                            keyboardType: TextInputType.number,
+                            decoration: InputDecoration(
+                              // hintText: '0.0 USD ',
+                              suffixIcon: Text(
+                                '£',
+                                style: TextStyle(
+                                    color: Colors.black, fontSize: 25),
+                              ),
+                              suffixIconConstraints:
+                                  BoxConstraints(minHeight: 0, minWidth: 0),
+                              hintText: '0.0 ',
+                              hintStyle: TextStyle(color: Colors.black),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            )),
+      ),
     );
   }
 }

@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           brightness: Brightness.dark,
           surface: const Color.fromARGB(255, 40, 47, 54),
         ),
-        scaffoldBackgroundColor: const Color.fromARGB(255, 57, 62, 67),
+        scaffoldBackgroundColor: const Color.fromARGB(255, 233, 234, 235),
       ),
       initialRoute: '/home',
       routes: {'/home': (context) => const HomeScreen()},
