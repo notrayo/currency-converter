@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 20,
                   ),
                   Container(
-                    height: 160,
+                    height: 180,
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 245, 242, 242),
                         borderRadius: BorderRadius.circular(5),
@@ -49,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               const SizedBox(
-                                width: 10,
+                                width: 20,
                               ),
                               Expanded(
                                 child: Column(
@@ -77,7 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
                           const TextField(
                             style: TextStyle(color: Colors.black, fontSize: 25),
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     height: 50,
                   ),
                   Container(
-                    height: 160,
+                    height: 180,
                     decoration: BoxDecoration(
                         color: const Color.fromARGB(255, 245, 242, 242),
                         borderRadius: BorderRadius.circular(5),
@@ -179,7 +179,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                               ),
                               const SizedBox(
-                                width: 10,
+                                width: 20,
                               ),
                               Expanded(
                                 child: Column(
@@ -207,7 +207,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ],
                           ),
                           const SizedBox(
-                            height: 10,
+                            height: 20,
                           ),
                           const TextField(
                             style: TextStyle(color: Colors.black, fontSize: 25),

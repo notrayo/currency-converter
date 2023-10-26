@@ -67,6 +67,15 @@ flutter:
     - assets/images/logo 4.jpg
     - assets/images/usa.jpeg
     - assets/images/british-flag.png
+    - assets/images/yen.png
+    - assets/images/south africa.jpeg
+    - assets/images/naija.png
+    - assets/images/kenya.png
+    - assets/images/india.png
+    - assets/images/euro.png
+    - assets/images/canada.png
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
