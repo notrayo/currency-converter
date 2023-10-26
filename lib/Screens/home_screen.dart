@@ -1,4 +1,7 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
+import '../models/currencies.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -8,6 +11,10 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  Country fromCurrency = currency_data[3];
+  Country toCurrency = currency_data[5];
+  double value = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
                                 child: Image.asset(
-                                  'assets/images/usa.jpeg',
+                                  fromCurrency.assetLink,
                                   height: 30,
                                   width: 50,
                                 ),
@@ -54,41 +61,74 @@ class _HomeScreenState extends State<HomeScreen> {
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
+                                  children: [
                                     Text(
-                                      'US DOLLAR',
-                                      style: TextStyle(
+                                      fromCurrency.currency,
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.black),
                                     ),
                                     Text(
-                                      'USD',
-                                      style: TextStyle(
+                                      fromCurrency.abbreviatedCurrency,
+                                      style: const TextStyle(
                                           fontStyle: FontStyle.italic,
                                           color: Colors.grey),
                                     )
                                   ],
                                 ),
                               ),
-                              const Icon(
-                                Icons.chevron_right_outlined,
+                              IconButton(
+                                onPressed: () {
+                                  // Implement logic to display the dropdown when the icon is pressed.
+                                  showModalBottomSheet<void>(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return SizedBox(
+                                        height: 70,
+                                        child: DropdownButton<Country>(
+                                          items: currency_data
+                                              .map((Country country) {
+                                            return DropdownMenuItem<Country>(
+                                              value: country,
+                                              child: Text(country.name),
+                                            );
+                                          }).toList(),
+                                          onChanged: (Country? newValue) {
+                                            setState(() {
+                                              if (newValue != null) {
+                                                fromCurrency = newValue;
+                                              }
+                                              Navigator.pop(
+                                                  context); // Close the bottom sheet after selection
+                                            });
+                                          },
+                                          hint:
+                                              const Text('Select New Currency'),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                icon: const Icon(Icons.chevron_right_outlined),
                                 color: Colors.black,
-                              )
+                              ),
                             ],
                           ),
                           const SizedBox(
                             height: 20,
                           ),
-                          const TextField(
-                            style: TextStyle(color: Colors.black, fontSize: 25),
+                          TextFormField(
+                            initialValue: value.toString(),
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 23),
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
                               hintText: '0.0 ',
-                              hintStyle: TextStyle(color: Colors.black),
+                              hintStyle: const TextStyle(color: Colors.black),
                               suffixIcon: Text(
-                                '\$',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 25),
+                                fromCurrency.abbreviatedCurrency,
+                                style: const TextStyle(
+                                    color: Colors.grey, fontSize: 25),
                               ),
                               suffixIconConstraints:
                                   BoxConstraints(minHeight: 0, minWidth: 0),
@@ -107,7 +147,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         height: 50,
                         width: 50,
                         decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 10, 96, 132),
+                          color: const Color.fromARGB(255, 10, 96, 132),
                           borderRadius: BorderRadius.circular(1),
                           // boxShadow: [
                           //   BoxShadow(
@@ -173,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(5),
                                 child: Image.asset(
-                                  'assets/images/british-flag.png',
+                                  toCurrency.assetLink,
                                   height: 40,
                                   width: 50,
                                 ),
@@ -184,45 +224,77 @@ class _HomeScreenState extends State<HomeScreen> {
                               Expanded(
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: const [
+                                  children: [
                                     Text(
-                                      'BRITISH POUND STERLING',
-                                      style: TextStyle(
+                                      toCurrency.currency,
+                                      style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color: Colors.black),
                                     ),
                                     Text(
-                                      'GBP',
-                                      style: TextStyle(
+                                      toCurrency.abbreviatedCurrency,
+                                      style: const TextStyle(
                                           fontStyle: FontStyle.italic,
                                           color: Colors.grey),
                                     )
                                   ],
                                 ),
                               ),
-                              const Icon(
-                                Icons.chevron_right_outlined,
+                              IconButton(
+                                onPressed: () {
+                                  // Implement logic to display the dropdown when the icon is pressed.
+                                  showModalBottomSheet<void>(
+                                    context: context,
+                                    builder: (BuildContext context) {
+                                      return SizedBox(
+                                        height: 70,
+                                        child: DropdownButton<Country>(
+                                          items: currency_data
+                                              .map((Country country) {
+                                            return DropdownMenuItem<Country>(
+                                              value: country,
+                                              child: Text(country.name),
+                                            );
+                                          }).toList(),
+                                          onChanged: (Country? newValue) {
+                                            setState(() {
+                                              if (newValue != null) {
+                                                toCurrency = newValue;
+                                              }
+                                              Navigator.pop(
+                                                  context); // Close the bottom sheet after selection
+                                            });
+                                          },
+                                          hint:
+                                              const Text('Select New Currency'),
+                                        ),
+                                      );
+                                    },
+                                  );
+                                },
+                                icon: const Icon(Icons.chevron_right_outlined),
                                 color: Colors.black,
-                              )
+                              ),
                             ],
                           ),
                           const SizedBox(
                             height: 20,
                           ),
-                          const TextField(
-                            style: TextStyle(color: Colors.black, fontSize: 25),
+                          TextFormField(
+                            initialValue: value.toString(),
+                            style: const TextStyle(
+                                color: Colors.black, fontSize: 23),
                             keyboardType: TextInputType.number,
                             decoration: InputDecoration(
-                              // hintText: '0.0 USD ',
+                              //hintText: '0.0 ',
+                              hintStyle: const TextStyle(color: Colors.black),
                               suffixIcon: Text(
-                                '£',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 25),
+                                toCurrency.abbreviatedCurrency,
+                                style: const TextStyle(
+                                    color: Colors.grey, fontSize: 25),
                               ),
-                              suffixIconConstraints:
-                                  BoxConstraints(minHeight: 0, minWidth: 0),
-                              hintText: '0.0 ',
-                              hintStyle: TextStyle(color: Colors.black),
+                              suffixIconConstraints: const BoxConstraints(
+                                  minHeight: 0, minWidth: 0),
                             ),
                           )
                         ],
